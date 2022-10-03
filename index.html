@@ -1,0 +1,303 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+
+  <title>Roy and Angel</title>
+  <meta name="description" content="Roy and Angel's Party">
+
+  <!-- <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"> -->
+  <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Monoton&family=Quicksand:wght@400;500;600&family=Righteous&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="./main.css">
+  <script src="https://apis.google.com/js/api.js"></script>
+  <!-- <script src="./main.js"></script> -->
+  <script>
+    function hideTicket(el, submitbtn) {
+      if (el.id === "rsvp") {
+        $(`#${el.id}`).find('.main-ticket').addClass("submitted");
+      } else {
+        $(`#${el.id}`).addClass("submitted")
+      }
+      $(`#${el.id} :input`).prop("disabled", true);
+      $(`#${submitbtn.id}`).addClass("submitted")
+      $(`#${submitbtn.id}`).val('SUBMITTED!');
+      $(`#${submitbtn.id}`).addClass("submitted");
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container event-info">
+    <img class="event-info-bg" src="./img/icerinkbg.jpeg" />
+    <div class="info-content">
+      <h1>We're signing the papers!</h1>
+      <h3>And we'd like to invite you to come and celebrate this day with us 💛</h3>
+      <div class="details-container">
+        <div class="event-details">
+          <strong>Location:</strong> The Rink at Jcube (yes, ice skating is involved!) <br>
+          <strong>Dress code:</strong> Informal (anything that keeps you warm) <br>
+          <br>
+          <strong>7:00PM - 7:30PM:</strong> Private solemnisation with family <br>
+          <strong>7:30PM:</strong> Welcome everyone! <br>
+          <strong>7.30PM-9.30PM:</strong> Skate, munch, chill<br>
+          <strong>9.30PM:</strong> End of party!<br>
+        </div>
+        <a href="#faq" id="qns-link">Have more questions?</a>
+        <a href="#rsvp" id="rsvp-btn">RSVP here</a>
+
+      </div>
+    </div>
+  </div>
+  <div class="container form">
+    <form class="RSVP" id="rsvp">
+      <div class="submitted-cfm" style="display: none">Thanks for letting us know! See you soon :)</div>
+      <div class="ticket main-ticket">
+        <div class="RSVP-title">RSVP</div>
+        <div class="main-ticket-content">
+          <div class="RSVP-description">We'd love to have you at our party, please let us know if you are able to make it by <strong>6th October 2022</strong>.</div>
+          <div class="divider"></div>
+          <input type="text" id="name" name="name" placeholder="Your name">
+          <div class="radio-box">
+            <input type="radio" id="rsvp-yes" name="rsvp" value="yes">
+            <label class="radio-label" for="rsvp-yes">I'll be there!</label><br>
+            <input type="radio" id="rsvp-no" name="rsvp" value="no">
+            <label class="radio-label" for="rsvp-no">Sorry, can't make it 😪</label><br>
+          </div>
+          <div class="RSVP-description" id="song-desc">
+            Build our playlist with us 💛  
+            <div class="sub-description">Send us some 💕 songs or anything you think represents us. We'll be using the playlist on the day itself! </div>
+            <div class="subtitle">(Angel: Just no kpop pls)</div>
+          </div>
+          <input type="text" id="song" name="song" placeholder="Song title & Artist">
+        </div>
+      </div>
+      <div class="sub-ticket">
+        <div class="food-rental-ticket">
+          <div class="ticket food" id="food-ticket">
+            <label for="food">What type of food would you like to have?</label>
+            <select class="food-dropdown" id="food-dropdown" name="food">
+              <option value="" disabled selected>Select...</option>
+              <option value="refreshments">Refreshments</option>
+              <option value="meal">Meal</option>
+              <option value="none">None for me!</option>
+            </select>
+          </div>
+          <div class="ticket rentals" id="rental-ticket">
+            <div>Will you be needing rental skates?</div>
+            <div class="radio-box">
+              <input type="radio" id="rental-yes" name="rentals" value="yes">
+              <label class="radio-label" for="rental-yes">Yes</label><br>
+              <input type="radio" id="rental-no" name="rentals" value="no">
+              <label class="radio-label" for="rental-no">No</label><br>
+            </div>
+          </div>
+          <div class="ticket" id="cant-go" style="display:none">
+            We're sad to hear you can't make it, let's meet another time then!
+          </div> 
+          <div class="ticket" id="see-you" style="display:none">
+            Thank you & see you there! 
+          </div> 
+        </div>
+        <!-- <div class="ticket submit"> -->
+          <input type="submit" name="rsvp-submit" class="ticket submit" id="submitBtn" value="SUBMIT"></input>
+        <!-- </div> -->
+      </div>
+    </form>
+    <div class="btn-container" id="add-btn-container">
+      <div id="add-person" onclick="createNewTicket()">I have a plus one/kids!</div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="FAQ" id="faq">
+      <h1 class="faq">Questions people have asked us</h1>
+      <div class="chat-right"> Wait what? That's so soon! </div>
+      <div class="chat-left"> Yeah we're in the midst of buying our house so we had to sign the papers sometime soon anyway.</div>
+      <div class="chat-left"> Just occured to us it might be nice to choose a day we already celebrated :)</div>
+      <div class="chat-right"> Is this a wedding? </div>
+      <div class="chat-left"> Nope</div>
+      <div class="chat-left"> We were planning to hold off the traditional ceremonies till a later date!</div>
+      <div class="chat-right">Why is it at the.. skating rink?</div>
+      <div class="chat-left roy">Cause it's fun!<div class="chat-angel">Roy</div></div>
+      <div class="chat-left angel" style="margin-top: 24px">Yesss and we'd get to spend more time with everyone than if it was a passive sit-down dinner kinda thing heh 😬<div class="chat-angel">Angel</div></div>
+      <div class="chat-right"> Are you wearing a wedding dress? </div>
+      <div class="chat-left angel"> Nooooooooo wayyyyayyy <div class="chat-angel">Angel</div></div>
+      <div class="chat-right">Will there be a performance or speech?</div>
+      <div class="chat-left"> Nope, we'll just be going around to hang out with everyone :)</div>
+      <div class="chat-right"> Do I need to give an angbao? </div>
+      <div class="chat-left roy"> No need! Your presence is enough for us! <div class="chat-roy">Roy</div></div>
+      <div class="chat-right"> Do I need to know how to ice skate? </div>
+      <div class="chat-left"> Nahhh</div>
+      <div class="chat-left">We will get some skating aids 🦭🐧 for sharing :)</div>
+      <div class="chat-left angel">Pretty much everyone gets to someee semblance of skating even on their first time :P You'll be okay!<div class="chat-Angel">Angel</div></div>
+      <div class="chat-right">What do I need to wear/bring for ice skating?</div>
+      <div class="chat-left">Just bring some socks (or you can buy some at the counter) and comfortable clothes (jacket if you feel cold). </div>
+      <div class="chat-left"> Feel free to bring your own ice skates or else you can get a rental pair at the rink.</div>
+      
+      <div class="chat-right"></div>
+      <div class="chat-left"></div>
+    </div>
+  </div>
+  <script>
+    var numtickets = 0;
+    let attendance = null; 
+    let rentals = null;
+    
+    $(document).ready(function() {
+      $('input[type=radio][name="rsvp"]').change(function() {
+          attendance = $(this).val();
+          console.log(attendance, 'value')
+          if (attendance === 'no') {
+            $('#cant-go').show();
+            $('#food-ticket').hide();
+            $('#rental-ticket').hide();
+          } else {
+            $('#cant-go').hide();
+            $('#food-ticket').show();
+            $('#rental-ticket').show();
+          }
+      });
+      $('input[type=radio][name="rentals"]').change(function() {
+          rentals = $(this).val();
+      });
+    });
+
+    document.getElementById('rsvp').addEventListener('submit', () => {
+      submit();
+    })
+
+    function submit() {
+      console.log('e', event);
+      event.preventDefault();
+      let formData = new FormData(event.target)
+      let formProps = Object.fromEntries(formData);
+      console.log(formProps, event.target.id);
+
+      //Check if all fields are filled 
+      if (event.target.id === 'rsvp') {
+        if (formProps.name && attendance === 'no') {
+          console.log('name and not going, can submit')
+          gFormSend(formProps);
+          hideTicket(event.target, event.submitter);
+          //disable ticket
+        } else if (formProps.name, attendance, rentals, formProps.food) {
+          console.log('everything in , can submit')
+          gFormSend(formProps);
+          $(`#food-ticket`).hide();
+          $(`#rental-ticket`).hide();
+          $(`#see-you`).show();
+          hideTicket(event.target, event.submitter);
+          //disable ticket
+        } else {
+          alert('Please fill in all the fields!')
+        }
+      } else {
+        console.log('stuff', formProps.name, formProps.mainname, formProps.food, rentals)
+        if (formProps.name, formProps.mainname, formProps.food, formProps.rentals) {
+          gFormSend(formProps)
+          hideTicket(event.target, event.submitter);
+        } else {
+          alert('Please fill in all the fields!')
+        }
+      }
+    }
+
+    function gFormSend(data) {
+      var myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${process.env.API_KEY}`);
+      myHeaders.append("Content-Type", "application/json");
+      console.log('sent!')
+
+      console.log('name and mainanme', data.name, data.mainname, 'formula', data.mainname ||  data.name)
+      var data = {
+        fields: {
+          "name" : data.name,
+          "mainname" : data.mainname ||  '',
+          "attendance": data.rsvp,
+          "food" : data.food,
+          "rentals" : data.rentals,
+          "song" : data.song
+        }
+      }
+      var raw = JSON.stringify(data);
+
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch(`https://api.airtable.com/v0/${process.env.BASE_ID}/${process.env.TABLE_ID}`, requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    }
+
+    function createNewTicket () {
+      var ticket = document.createElement(`form`);
+      ticket.id = `plusone${numtickets}`
+      ticket.classList.add("RSVP")
+      ticket.onsubmit = () => {
+        submit();
+      }
+      
+      var mainticket = document.createElement(`div`);
+      mainticket.classList.add("ticket", "main-ticket")
+      mainticket.innerHTML = `
+        <div class="RSVP-title">RSVP</div>
+        <div class="main-ticket-content">
+          <div class="RSVP-description">We'd love to have you at our party, please let us know if you are able to make it by <strong>6th October 2022</strong>.</div>
+          <div class="divider"></div>
+          <input type="text" id="mainname_${numtickets}" name="mainname" placeholder="Your name">
+          <input type="text" id="name_${numtickets}" name="name" placeholder="Their name">
+        </div>          
+        `
+
+      var subticket = document.createElement(`div`);
+      subticket.classList.add(`sub-ticket`)
+      subticket.innerHTML = `
+        <div class="food-rental-ticket">
+            <div class="ticket food" id="food-ticket_${numtickets}">
+              <label for="food">What type of food would they like to have?</label>
+              <select id="food-dropdown_${numtickets}" name="food">
+                <option value="" disabled selected>Select...</option>
+                <option value="refreshments">Refreshments</option>
+                <option value="meal">Meal</option>
+                <option value="none">None for me!</option>
+              </select>
+            </div>
+            <div class="ticket rentals" id="rental-ticket_${numtickets}">
+              <div>Will they be needing rental skates?</div>
+              <div class="radio-box">
+                <input type="radio" id="rental-yes_${numtickets}" name="rentals" value="yes">
+                <label class="radio-label" for="rental-yes">Yes</label><br>
+                <input type="radio" id="rental-no_${numtickets}" name="rentals" value="no">
+                <label class="radio-label" for="rental-no">No</label><br>
+              </div>
+            </div>
+          </div>
+          <input type="submit" class="ticket submit" id="submit_${numtickets}" value="SUBMIT"></input>
+      `
+      ticket.appendChild(mainticket);
+      ticket.appendChild(subticket);
+      console.log('ticket is', ticket);
+      
+      var addpersonbtn = document.getElementById('add-btn-container')
+      addpersonbtn.parentNode.insertBefore(ticket, addpersonbtn);
+
+      numtickets++;
+      if (numtickets === 3) {
+        addpersonbtn.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

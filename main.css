@@ -1,0 +1,505 @@
+html {
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  width: 100vw;
+}
+
+:root {
+  --faq-bg: white;
+  --receive-bg: #e9e9e9;
+  --send-bg: rgb(59, 142, 226);
+}
+
+/****** event info ******/
+.container.event-info {
+  width: 100%;
+  height: auto;
+}
+
+.event-info-bg {
+  width: 100%;
+  position:sticky;
+  top: 1; 
+  z-index: -1;
+}
+
+.info-content {
+  padding: 40px 0;
+  margin-top: -80px;
+  width: 100%;
+  text-align: center; 
+  background-color: #ffffffcf;
+}
+
+.info-content>h3 {
+  font-weight: 300;
+}
+
+.details-container {
+  text-align: center;
+  max-width: 75%;
+  width: fit-content;
+  margin: 32px auto;
+  margin-bottom: 100px;
+  padding: 24px;
+  background-color: #d4eeffab;
+  border-radius: 12px;
+  line-height: 32px;
+  
+}
+
+.event-details {
+  text-align: left;
+}
+
+#rsvp-btn {
+  display: block;
+  margin: 4px auto;
+  padding: 8px 32px; 
+  width: fit-content;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  color: fff;
+  background-color: steelblue; 
+}
+
+#rsvp-btn:hover {
+  filter: brightness(110%)
+}
+
+#qns-link {
+  font-size: 14px;
+  color: steelblue;
+}
+
+/** Small screens **/
+@media only screen and (max-width: 600px) {
+  .info-content {
+    margin-top: 0;
+  }
+
+  .info-content>h1, .info-content>h3 {
+    margin: 20px
+  }
+
+  
+
+
+}
+
+/****** RSVP form ******/
+
+.container.form {
+  background-image: url('./img/confettibg.jpeg');
+  box-shadow: 0px 0px 8px #00000024 inset;
+}
+
+.submitted {
+  color: lightgrey;
+  filter: grayscale(1);
+}
+
+.RSVP {
+  display: flex;
+  max-width:800px;
+  margin: auto;
+  padding: 40px 24px 24px;
+}
+
+.ticket {
+  background-color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 24px;
+  box-shadow: 2px 2px 4px #00000024;
+  outline: 1px solid #cdcde8;
+  outline-offset: -10px;
+}
+
+/**** Mainticket ****/
+
+.RSVP-title {
+  font-size: 32px;
+  text-align:center;
+  font-family: 'Monoton', cursive;
+}
+
+.RSVP-description {
+  padding: 12px 0;
+}
+
+#song-desc {
+  font-weight: 600;
+}
+
+.sub-description {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.subtitle {
+  padding-top:4px;
+  font-size: 12px;
+  color: grey;
+  font-weight: 400;
+}
+
+.divider {
+  margin: 12px 0;
+  border-bottom: 1px dotted #cdcde8;
+}
+
+.main-ticket {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 6px #0000003d;
+}
+
+.main-ticket-content {
+  text-align: center;
+  padding: 0 16px;
+}
+
+.btn-container {
+  padding-bottom: 24px;
+}
+
+#add-person {
+  width:fit-content;
+  padding: 12px 24px;
+  background-color: rgb(255, 171, 14);
+  color: white;
+  margin:auto; 
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0px 2px 6px #0000003d;
+}
+
+#add-person:hover {
+  filter: brightness(110%)
+}
+
+  /** Small screens **/
+  @media only screen and (max-width: 600px) {
+    .RSVP {
+      display: block;
+    }
+  }
+
+
+  /** Large screens **/
+  @media only screen and (min-width: 601px) {
+    .RSVP-title {
+      border-left: 1px dotted #cdcde8;
+      writing-mode: tb-rl;
+      transform: rotate(-180deg);
+      margin-left: -12px
+    }
+
+    .main-ticket {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+/**** RSVP inputs ****/
+
+  input:disabled {
+    cursor: default !important;
+  }
+
+  /*** text inputs ***/
+  input[type=text] {
+    width: 100%;
+    max-width: 360px;
+    padding: 8px 16px 0px;
+
+    display: inline-block;
+
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 32px;
+
+    border-radius: 2px;
+    border-style: none;
+    border-bottom: 1px solid #E9DDB4;
+  }
+
+  input[type=text]:focus-visible {
+    outline: none;
+  }
+
+
+  /*** radio inputs ***/
+  .radio-box {
+    display: inline-flex;
+    overflow: hidden;
+    padding: 16px 0;
+  }
+
+  input[type=radio]::before {
+    display: inline-block;
+    background-size: 32px 32px;
+    content: "";
+    height: 32px;
+    width: 32px;
+    background-image: url(./img/Checkbox.png);
+    margin-bottom: -6px;
+  }
+  
+  input[type="radio" i] {
+    appearance: none;
+    width: 32px;
+    cursor: pointer;
+  }
+  
+  .radio-label {
+    margin: 12px 24px 0px 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  input[type=radio]:not([disabled]):hover + .radio-label, input[type=radio]:checked + .radio-label {
+    font-weight: 700;
+  }
+
+  input[type=radio]:checked::before {
+    background-image: url(./img/Checkbox\ w\ check.png);
+  }
+  
+  /*** dropdown inputs ***/
+  select {
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid black;
+  }
+
+  select:focus-within {
+    outline: 1px solid rgb(210, 210, 128);
+  }
+
+/**** Subticket ****/
+
+.sub-ticket {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  flex-grow:1;
+}
+
+/*** Food & Rentals ***/
+.food-dropdown {
+  display: block;
+  margin-top: 8px;
+  width: 100%;
+  border-radius: 0;
+  font-family: 'Quicksand', sans-serif;
+  color: black;
+  background-color: transparent;
+  appearance: none;
+  cursor: pointer;
+}
+
+.food-dropdown::before {
+  content: '';
+  background-image: url('./img/down-arrow.svg');
+  size: 12px;
+  position: relative; 
+  right: 8px;
+}
+
+.rentals>.radio-box {
+  padding: 0;
+}
+
+.food-rental-ticket {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+
+.food-rental-ticket>.ticket {
+  display: flex;
+  flex-grow: 0.5;
+  flex-direction: column; 
+  justify-content: center;
+  text-align: center;
+  box-shadow: 2px -2px 4px #00000024;
+  border-left: 1px dashed rgb(60, 60, 60);
+  border-bottom: 1px dashed rgb(60, 60, 60);
+}
+
+#cant-go, #see-you {
+  flex-grow: 1;
+  max-width: 260px;
+  filter: none;
+  outline: 1px solid rgb(255, 171, 14);
+}
+
+ /** Small screens **/
+ @media only screen and (max-width: 600px) {
+  .food-rental-ticket {
+    flex-direction: row;
+  }
+ 
+  .food-rental-ticket>.ticket {
+    text-align: center;
+    border-top: 1px dashed rgb(60, 60, 60);
+    width: 50%;
+    border-bottom: none;
+  }
+
+  .ticket.food {
+    box-shadow: -2px 2px 4px #00000024;
+    border-left:none;
+  }
+
+  .ticket.rentals {
+    box-shadow: 2px 2px 4px #00000024;
+  }
+  #cant-go, #see-you {
+    border-left: none;
+    box-shadow: 0px 2px 6px #0000003d;
+    max-width:none;
+  }
+
+
+  .rentals>.radio-box {
+    display: inline-block;
+  }
+
+  .rentals>.radio-box>.radio-label {
+    display: inline-block;
+    margin: 0;
+    margin-left: 8px;
+    padding: 0;
+  }
+}
+
+  /*** Submit ***/
+
+
+
+  .ticket.submit {
+    appearance: none;
+    cursor: pointer;
+    font-family: 'Quicksand';
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 3px;
+    color: #fff;
+    background-color: rgb(255, 171, 14);
+    outline: none;
+    box-shadow: 0px 2px 6px #0000003d;
+  }
+
+  .ticket.submit:not(.submitted):hover {
+    filter: brightness(110%)
+  }
+
+
+
+  /****** FAQ ******/
+  .faq {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1.faq {
+    padding: 36px;
+    text-align: center;
+    line-height: initial;
+  }
+
+  .chat-left, .chat-right {
+    border-radius: 20px;
+    padding:20px;
+    width:fit-content;
+    position:relative;
+    margin: 4px 24px;
+    max-width: 50%;
+    line-height: 24px;
+  }
+
+  .chat-left {
+    background-color: var(--receive-bg);
+    align-self: flex-start;
+  }
+
+  .chat-right {
+    color: white;
+    background-color: var(--send-bg);
+    align-self: flex-end;
+  }
+
+  .chat-left::before, .chat-left::after, .chat-right::before, .chat-right::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 25px;
+  }
+
+  .chat-left::before {
+    left: -7px;
+    width: 20px;
+    background-color: var(--receive-bg);
+    border-bottom-right-radius: 16px 14px;
+	}
+
+	.chat-left::after {
+		left: -26px;
+    width: 26px;
+    background-color: var(--faq-bg);
+    border-bottom-right-radius: 10px;
+	}
+
+  .chat-right::before {
+		right: -7px;
+    width: 20px;
+    background-color: var(--send-bg);
+		border-bottom-left-radius: 16px 14px;
+	}
+
+	.chat-right::after {
+		right: -26px;
+    width: 26px;
+    background-color: var(--faq-bg);
+		border-bottom-left-radius: 10px;
+	}
+
+  .chat-angel, .chat-roy {
+    position: absolute;
+    left: 6px;
+
+    font-size: 14px;
+    color: grey;
+    padding-top: 4px;
+    margin-top: 16px;
+  }
+
+  .chat-left.angel {
+    background-color: #ffc3ad;
+  }
+
+  .chat-left.angel::before {
+    background-color: #ffc3ad
+  }
+
+  .chat-left.roy {
+    background-color: #b5dead;
+  }
+
+  .chat-left.roy::before {
+    background-color: #b5dead;
+  }
+
