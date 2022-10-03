@@ -184,12 +184,12 @@
       if (event.target.id === 'rsvp') {
         if (formProps.name && attendance === 'no') {
           console.log('name and not going, can submit')
-          gFormSend(formProps);
+          formSend(formProps);
           hideTicket(event.target, event.submitter);
           //disable ticket
         } else if (formProps.name, attendance, rentals, formProps.food) {
           console.log('everything in , can submit')
-          gFormSend(formProps);
+          formSend(formProps);
           $(`#food-ticket`).hide();
           $(`#rental-ticket`).hide();
           $(`#see-you`).show();
@@ -201,7 +201,7 @@
       } else {
         console.log('stuff', formProps.name, formProps.mainname, formProps.food, rentals)
         if (formProps.name, formProps.mainname, formProps.food, formProps.rentals) {
-          gFormSend(formProps)
+          formSend(formProps)
           hideTicket(event.target, event.submitter);
         } else {
           alert('Please fill in all the fields!')
@@ -209,13 +209,7 @@
       }
     }
 
-    function gFormSend(data) {
-      var myHeaders = new Headers();
-      myHeaders.append("Authorization", `Bearer ${process.env.API_KEY}`);
-      myHeaders.append("Content-Type", "application/json");
-      console.log('sent!')
-
-      console.log('name and mainanme', data.name, data.mainname, 'formula', data.mainname ||  data.name)
+    function formSend(data) {
       var data = {
         fields: {
           "name" : data.name,
@@ -226,19 +220,23 @@
           "song" : data.song
         }
       }
-      var raw = JSON.stringify(data);
 
-      var requestOptions = {
+      fetch('https://angelroyparty.herokuapp.com/send', {
         method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
-      };
-
-      fetch(`https://api.airtable.com/v0/${process.env.BASE_ID}/${process.env.TABLE_ID}`, requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+      .then(function(response) {
+          return response.json();
+      })
+      .then(function(data) {
+          console.log('Request succeeded with JSON response', data);
+      })
+      .catch(function(error) {
+          console.log('Request failed', error);
+      });
     }
 
     function createNewTicket () {
