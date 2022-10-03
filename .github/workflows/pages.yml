@@ -27,14 +27,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+        API_Key: ${{ secrets.API_Key }}
+        BASE_ID: ${{ secrets.BASE_ID }}
+        TABLE_ID: ${{ secrets.TABLE_ID }}
     steps:
-      - name: Build
-        run: |
-          npm install
-          npm run-script build
-        env:
-          REACT_APP_APIKey: ${{ secrets.REACT_APP_APIKey }}
-          REACT_APP_APISecret: ${{ secrets.REACT_APP_APISecret }}
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
