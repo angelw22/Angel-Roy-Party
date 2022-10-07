@@ -531,18 +531,18 @@ body {
   }
 
   .chat-left.angel {
-    background-color: #ffc3ad;
+    background-color: #ffe3d9;
   }
 
   .chat-left.angel::before {
-    background-color: #ffc3ad
+    background-color: #ffe3d9;
   }
 
   .chat-left.roy {
-    background-color: #b5dead;
+    background-color: #d6ead3;
   }
 
   .chat-left.roy::before {
-    background-color: #b5dead;
+    background-color: #d6ead3;
   }
 
