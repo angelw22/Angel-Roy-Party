@@ -14,6 +14,8 @@ window.onload = (e) => {
 
   if (window.innerWidth < 600) {
     document.getElementById('icebg').src = "./img/icerinksmall.png"
+  } else {
+    document.getElementById('icebg').src="./img/icerinkbg.png"
   }
 }
 
