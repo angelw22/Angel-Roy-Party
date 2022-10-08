@@ -17,7 +17,11 @@ window.onload = (e) => {
   } else {
     document.getElementById('icebg').src="./img/icerinkbg.png"
   }
+}
 
+
+document.getElementById('icebg').onclick = () => {
+  console.log('clicked')
   if (
     DeviceMotionEvent &&
     typeof DeviceMotionEvent.requestPermission === "function"
@@ -25,7 +29,6 @@ window.onload = (e) => {
     DeviceMotionEvent.requestPermission();
   }
 }
-
 
 window.addEventListener("keydown", moveSomething, false);
 

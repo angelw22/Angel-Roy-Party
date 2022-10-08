@@ -128,7 +128,7 @@ function createNewTicket () {
           </div>
         </div>
       </div>
-      <input type="submit" class="ticket submit" id="submit_${numtickets}" value="SUBMIT"></input>
+      <input type="submit" class="ticket submit" id="submit_${numtickets}" value="CONFIRM"></input>
   `
   ticket.appendChild(mainticket);
   ticket.appendChild(subticket);
