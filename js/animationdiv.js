@@ -17,6 +17,13 @@ window.onload = (e) => {
   } else {
     document.getElementById('icebg').src="./img/icerinkbg.png"
   }
+
+  if (
+    DeviceMotionEvent &&
+    typeof DeviceMotionEvent.requestPermission === "function"
+  ) {
+    DeviceMotionEvent.requestPermission();
+  }
 }
 
 
